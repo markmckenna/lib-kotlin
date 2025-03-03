@@ -21,6 +21,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${Versions.coroutines}")
             }
         }
 
@@ -34,6 +35,7 @@ kotlin {
         jvm().compilations["main"].defaultSourceSet {
             dependencies {
                 implementation(kotlin("stdlib-jdk8"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}")
             }
         }
 
@@ -47,6 +49,7 @@ kotlin {
         js().compilations["main"].defaultSourceSet {
             dependencies {
                 implementation(kotlin("stdlib-js"))
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:${Versions.coroutines}")
             }
         }
 
@@ -57,7 +60,10 @@ kotlin {
         }
 
         macosX64("macos").compilations["main"].defaultSourceSet {
-            // TODO
+            dependencies {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${Versions.coroutines}")
+                // TODO
+            }
         }
 
         macosX64("macos").compilations["test"].defaultSourceSet {
